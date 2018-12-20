@@ -1,7 +1,7 @@
 # plex_docker
 
 Chef recipe to install and configure plex media center into a
-docker container
+docker container using network folders
 
 ## Before start
 
@@ -32,7 +32,7 @@ default['plex_docker']['password'] = 'PASSWORD_HERE'
 default['plex_docker']['local_movies_folder'] = 'YOUR_LOCAL_MOVIE_PATH'
 default['plex_docker']['local_music_folder'] = 'YOUR_LOCAL_MUSIC_PATH'
 ```
-#### remove folder (Ex. `//127.0.0.1/Public/Videos`)
+#### remote folder (Ex. `//127.0.0.1/Public/Videos`)
 ```
 default['plex_docker']['cifs_movies_folder'] = 'YOUR_REMOTE_MOVIE_PATH'
 default['plex_docker']['cifs_music_folder'] = 'YOUR_REMOTE_MUSIC_PATH'
