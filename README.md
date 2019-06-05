@@ -50,7 +50,9 @@ default['plex_docker']['transcode_host_docker_volume'] = 'PATH_TO_STORE_PLEX_TRA
 default['plex_docker']['image_name'] = 'plexinc/pms-docker'
 ```
 #### container name
+```
 default['plex_docker']['container_name'] = 'CONTAINER_NAME'
+```
 
 #### plex claim token
 The claim token for the server to obtain a real server token. If not provided, server will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim
