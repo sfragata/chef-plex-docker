@@ -26,12 +26,12 @@ smbfs_mount "#{node['plex_docker']['local_music_folder']}" do
  password "#{node['plex_docker']['password']}"
 end
 
-docker_container 'plex' do
-  repo 'timhaak/plex'
+docker_container "#{node['plex_docker']['container_name']}" do
+  repo "#{node['plex_docker']['image_name']}"
   action :run
-  port '32400:32400'
   network_mode 'host'
-  volumes ["/etc/localtime:/etc/localtime",
+  env ['TZ=America/Toronto', "PLEX_CLAIM=#{node['plex_docker']['plex_claim']}"]
+  volumes ["#{node['plex_docker']['transcode_host_docker_volume']}:/transcode",
            "#{node['plex_docker']['config_host_docker_volume']}:/config",
            "#{node['plex_docker']['local_movies_folder']}:/data/movies",
            "#{node['plex_docker']['local_music_folder']}:/data/music"]
